@@ -5,6 +5,7 @@ edition = "2021"
 description = "A minimal implementation of telnet."
 repository = "https://github.com/didoloan/relnet.git"
 homepage = "https://github.com/didoloan/relnet.git"
+license = "MIT"
 
 [dependencies]
 async-lock = "3.4.0"
