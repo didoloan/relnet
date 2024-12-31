@@ -1,6 +1,6 @@
 [package]
 name = "relnet"
-version = "0.1.0"
+version = "0.1.0-alpha.1"
 edition = "2021"
 description = "A minimal implementation of telnet."
 repository = "https://github.com/didoloan/relnet.git"
