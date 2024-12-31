@@ -1,3 +1,7 @@
+# RELNET
+
+A minimal telnet client with tls support 
+
 Usage: telnet-rs [OPTIONS] [HOST] [PORT]
 
 Arguments:

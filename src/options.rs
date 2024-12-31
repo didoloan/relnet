@@ -8,7 +8,7 @@ static NEWLINE: char = '\n';
 pub(crate) struct Cli {
     #[arg(default_value_t = String::from_str("google.com").unwrap())]
     pub host: String,
-    #[arg(default_value_t = 465)]
+    #[arg(default_value_t = 80)]
     pub port: u16,
     #[arg(short='s', long, default_value_t=false)]
     pub secure: bool,
@@ -25,9 +25,9 @@ pub(crate) struct Cli {
     // #[arg(short='d', long)]
     // debug: bool,
     #[arg(short='e', long, default_value_t=NEWLINE)]
-    escape: char,
+    pub escape: char,
     #[arg(short='d', long, default_value_t=String::from_str("example.com").unwrap())]
-    client_domain: String,
+    pub client_domain: String,
     // #[arg(short='E', long="no-escape")]
     // no_escape: bool,
     // #[arg(short='K', long="no-login")]

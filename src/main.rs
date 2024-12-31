@@ -14,11 +14,9 @@ static IS_CLOSING:OnceCell<bool> = OnceCell::new();
 
 #[monoio::main(enable_timer = true)]
 async fn main() {
-    let res = run_telnet().await;
-
-    eprintln!("{}", res.unwrap_err());
-    
-    ()
+    if let Err(err) = run_telnet().await {
+        eprintln!("{}", err);
+    }
 }
 
 async fn run_telnet() -> Result<(), Box<dyn std::error::Error>> {
@@ -56,7 +54,7 @@ async fn run_telnet() -> Result<(), Box<dyn std::error::Error>> {
             break;
         }
         let mut buf = Vec::with_capacity(1024);
-        match buf_stdin.read_until(b'\n', &mut buf).await {
+        match buf_stdin.read_until(cli.escape as u8, &mut buf).await {
             Ok(_) => {
                 write_half.write_all(buf).await.0?;
             }
